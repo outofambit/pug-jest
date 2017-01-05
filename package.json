@@ -1,7 +1,7 @@
 {
   "name": "pug-jest",
   "description": "A plugin for using Pug with Jest",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/transfixio/pug-jest.git"
