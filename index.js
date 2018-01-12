@@ -1,11 +1,9 @@
 const pug = require('pug');
 
-function transformPugToHtml(src) {
+function transformPugToFn(src, filePath) {
   try {
-    const template = pug.compile(src);
-    const html = template();
-    const content = JSON.stringify(html);
-    return `module.exports = ${content};`;
+    const template = pug.compile(src, {filename: filePath});
+    return `module.exports = ${template};`;
   } catch (e) {
     throw e;
   }
@@ -13,6 +11,6 @@ function transformPugToHtml(src) {
 
 module.exports = {
   process(src, filePath) {
-    return transformPugToHtml(src, filePath);
+    return transformPugToFn(src, filePath);
   }
 };
