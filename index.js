@@ -1,9 +1,9 @@
-const pug = require('pug');
+const pug = require("pug");
 
 function transformPugToFn(src, filePath) {
   try {
-    const template = pug.compile(src, {filename: filePath});
-    return `module.exports = ${template};`;
+    const template = pug.compile(src, { filename: filePath });
+    return `var pug = require("pug-runtime"); module.exports = ${template};`;
   } catch (e) {
     throw e;
   }
